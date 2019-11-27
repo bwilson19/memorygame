@@ -79,11 +79,6 @@ footer {
 	font-family: "Raleway", sans-serif;
 }
 
-.social {
-	float: none;
-	font-family: "Raleway", sans-serif;
-	font-size: 10px;
-}
 
 .clearfix:after {
 visibility: hidden;
@@ -104,7 +99,12 @@ border: 3px solid blue;
 padding: 3px;
 }
 
-
+#result {
+	font-size: 30px;
+	color: red;
+	font-family: "Raleway", sans-serif;
+	margin-top: 20px;
+}
 
 
 
