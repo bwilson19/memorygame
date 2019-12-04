@@ -26,7 +26,19 @@ text-decoration: none;
 text-transform: uppercase;
 margin: 0px 20px 0px 20px;
 color: #ffffff
+padding: 5px;
 border-bottom: 2px solid transparent;
+}
+
+#score {
+font-family: "Raleway", sans-serif;
+letter-spacing: 1px;
+font-weight: 600;
+font-size: 18px;
+text-decoration: none;
+text-transform: uppercase;
+margin: 0px 20px 0px 20px;
+color: #ffffff
 }
 
 h2 {
@@ -46,12 +58,12 @@ header {
 nav {
 	background-color: #00A6B3;
 	color: #ffffff;
-	padding: 20px 0px 20px 0px;
+	padding: 15px 0px 15px 0px;
 }
 
 main {
 	width: 850px;
-	margin: 35px auto 35px auto;
+	margin: 20px auto 100px auto;
 }
 
 img {
@@ -66,6 +78,10 @@ footer {
 	font-size:14px;
 	letter-spacing: .08em;
 	font-weight: 500;
+	position:fixed;
+  	left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .copyright {
@@ -95,22 +111,43 @@ font-size: 0;
 }
 
 a:hover {
-border: 3px solid blue;
-padding: 3px;
+border: .1px solid #0089b3;
+background-color: #44d0db;
+padding: 5px;
+}
+
+#score:hover {
+border: none;
+background-color: transparent;
 }
 
 #result {
 	font-size: 30px;
-	color: red;
+	color: #F15B31;
 	font-family: "Raleway", sans-serif;
-	margin-top: 20px;
+	margin: 20px 0px 15px 0px;
 }
 
+button {
+  background-color: #00A6B3;
+  border: #F15B31 solid 1px;
+  color: white;
+  margin: 10px 0 40px 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  }
 
+button:hover {
+	background-color: #44d0db;
+}
 
-
-
-
+#desc {
+font-family: "Raleway", sans-serif;
+letter-spacing: 1px;
+font-weight: 400;
+font-size: 14px;}
 
 
 
