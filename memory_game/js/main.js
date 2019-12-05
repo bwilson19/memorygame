@@ -46,38 +46,40 @@ var cardsInPlaySuit = [];
 
 var previousScore = 0 + sessionStorage.getItem("previousScoreMemory");
 var previousScoreNumber = parseInt(previousScore, 10);
-  document.getElementById("score").innerHTML = "Score: " + previousScoreNumber + " Wins";
+document.getElementById("score").innerHTML = "Win Streak: " + previousScoreNumber;
 
 function checkForMatch (){
 if (cardsInPlayRank[0] === cardsInPlayRank[1] && cardsInPlaySuit[0] === cardsInPlaySuit[1]) {
   document.getElementById("result").innerHTML = "You found a match! Congrats!"; 
   var scorePlus = 1 + previousScoreNumber;
-  document.getElementById("score").innerHTML = "Score: " + scorePlus + " Wins";
+  document.getElementById("score").innerHTML = "Win Streak: " + scorePlus;
   sessionStorage.setItem("previousScoreMemory", scorePlus);
 } else {
-  document.getElementById("result").innerHTML = "The cards did not match. Sorry, try again!"; 
+  document.getElementById("result").innerHTML = "The cards did not match. Sorry, try again!";
+  sessionStorage.removeItem("previousScoreMemory");
+  document.getElementById("score").innerHTML = "Win Streak: " + 0;
 }
 }
 
 function flipCard(){
-var cardId= this.getAttribute('data-id');	
-cardsInPlayRank.push(cards[cardId].rank);
-cardsInPlaySuit.push(cards[cardId].suit);
+  var cardId= this.getAttribute('data-id');	
+  cardsInPlayRank.push(cards[cardId].rank);
+  cardsInPlaySuit.push(cards[cardId].suit);
 
-console.log("User flipped " + cards[cardId].rank);
-console.log(cards[cardId].cardImage);
-console.log(cards[cardId].suit);
-this.setAttribute("src", cards[cardId].cardImage);
+  console.log("User flipped " + cards[cardId].rank);
+  console.log(cards[cardId].cardImage);
+  console.log(cards[cardId].suit);
+  this.setAttribute("src", cards[cardId].cardImage);
 
-if (cardsInPlayRank.length === 2){
-checkForMatch();
-createReload();
-document.getElementById("result").scrollIntoView();
+  if (cardsInPlayRank.length === 2){
+  checkForMatch();
+  createReload();
+  document.getElementById("result").scrollIntoView();
 }
 }
 
 function createBoard(){
-for (var i = 0; i < cards.length; i++) {
+  for (var i = 0; i < cards.length; i++) {
    var cardElement = document.createElement("img");
    cardElement.setAttribute('src', "images/back.png");
    cardElement.setAttribute('data-id', i);
@@ -90,9 +92,9 @@ createBoard();
 
 function createReload(){
   if (cardsInPlayRank[0] === cardsInPlayRank[1] && cardsInPlaySuit[0] === cardsInPlaySuit[1]) {
-	var reloadButtonWin = document.createElement("button");
-	document.getElementById('reload').appendChild(reloadButtonWin);
-	document.getElementById("reload").innerHTML = "<button >Play Again?</button>";
+  var reloadButtonWin = document.createElement("button");
+  document.getElementById('reload').appendChild(reloadButtonWin);
+  document.getElementById("reload").innerHTML = "<button >Play Again?</button>";
 }else{
   var reloadButtonLoss = document.createElement("button");
   document.getElementById('reload').appendChild(reloadButtonLoss);
@@ -101,9 +103,9 @@ function createReload(){
 }
 
 function createDesc(){
-var descWindow = document.createElement('p'); 
-document.getElementById("desc").innerHTML = "<p>Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn.</p><p>The object of the game is to turn over pairs of matching cards. Give it a try!</p>";
-document.getElementById('desc').appendChild(descWindow);
+  var descWindow = document.createElement('p'); 
+  document.getElementById("desc").innerHTML = "<p>Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn.</p><p>The object of the game is to turn over pairs of matching cards. Give it a try!</p>";
+  document.getElementById('desc').appendChild(descWindow);
 } 
 
 document.getElementById('instruct').addEventListener('click', createDesc);
